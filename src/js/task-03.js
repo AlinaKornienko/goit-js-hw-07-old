@@ -13,49 +13,34 @@ const images = [
   },
 ];
 
-
 const imagesEl = document.querySelector('#gallery');
 
-const createImagesCardsEl = ({url, alt}) => {
-const imagesItemEl = document.createElement('li');
-imagesItemEl.classList.add('gallery');
+const createImageCards = images
+.map(({url, alt}) => `<li style="list-style: none"><img src="${url}" alt="${alt}" width = 380 height = 200/></li>`)
+.join('');
 
-const imagesCardEl = document.createElement('img');
-imagesCardEl.src = url;
-imagesCardEl.alt = alt;
-imagesCardEl.width = 380;
-imagesCardEl.height = 200;
-imagesCardEl.classList.add('gallery__item');
+imagesEl.insertAdjacentHTML('beforeend', createImageCards);
 
-imagesItemEl.append(imagesCardEl);
 
-return imagesItemEl;
-};
-
-const elements = images.map(createImagesCardsEl);
-console.log(elements);
-imagesEl.append(...elements);
-
+// const imagesEl = document.querySelector('#gallery');
 
 // const createImagesCardsEl = ({url, alt}) => {
 // const imagesItemEl = document.createElement('li');
 // imagesItemEl.classList.add('gallery');
- 
+
 // const imagesCardEl = document.createElement('img');
 // imagesCardEl.src = url;
 // imagesCardEl.alt = alt;
-// imagesCardEl.width = 480;
+// imagesCardEl.width = 380;
+// imagesCardEl.height = 200;
 // imagesCardEl.classList.add('gallery__item');
 
 // imagesItemEl.append(imagesCardEl);
+
 // return imagesItemEl;
 // };
 
-// console.log(images);
-// const imagesEl = document.querySelector('#gallery');
-// const createElements = images
-// .map(createImagesCardsEl);
-// .join('');
+// const elements = images.map(createImagesCardsEl);
+// console.log(elements);
+// imagesEl.append(...elements);
 
-// imagesEl.insertAdjacentElement('afterbegin', createElements);
-// console.log(createElements);
