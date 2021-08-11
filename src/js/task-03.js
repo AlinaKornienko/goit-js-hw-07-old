@@ -15,37 +15,22 @@ const images = [
 
 const imagesEl = document.querySelector('#gallery');
 
-// const image = images [0];
-
-// const imagesItemEl = document.createElement('li');
-// imagesItemEl.classList.add('gallery');
-
-// const imagesCardEl = document.createElement('img');
-// imagesCardEl.src = image.url;
-// imagesCardEl.alt = image.alt;
-// imagesCardEl.width = 380;
-// imagesCardEl.classList.add('gallery__item');
-
-// imagesItemEl.append(imagesCardEl);
-// console.log(imagesItemEl);
-// imagesEl.append(imagesItemEl);
-
-
-const createImagesCardsEl = options => {
-  return options.map(option => {
+const createImagesCardsEl = ({url, alt}) => {
 const imagesItemEl = document.createElement('li');
 imagesItemEl.classList.add('gallery');
 
 const imagesCardEl = document.createElement('img');
-imagesCardEl.src = option.url;
-imagesCardEl.alt = option.alt;
+imagesCardEl.src = url;
+imagesCardEl.alt = alt;
 imagesCardEl.width = 480;
 imagesCardEl.classList.add('gallery__item');
 
 imagesItemEl.append(imagesCardEl);
 
-return imagesCardEl;
-  });
+return imagesItemEl;
 };
-const elements = createImagesCardsEl(images);
+
+const elements = images.map(createImagesCardsEl);
+console.log(elements);
 imagesEl.append(...elements);
+
