@@ -6,5 +6,5 @@ refs.input.addEventListener('input', onInputChange);
 function onInputChange(event) {
     console.log(event.currentTarget.value);
     refs.nameLabel.textContent = event.currentTarget.value;
-    spanEl.textContent = input.value ? input.value : 'незнакомец';
+    nameLabel.textContent = input.value ? input.value : 'незнакомец';
 };
